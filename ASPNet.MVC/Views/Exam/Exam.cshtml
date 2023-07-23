@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ASPNet.MVC.Models.Book>
+@{
+    ViewData["Title"] = "Popis knjiga";
+}
+
+<h1>Popis knjiga</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Naslov)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cijena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Autor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Naslov)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cijena)
+                </td>
+                <td>
+                    <div> @Html.DisplayFor(modelItem =>item.Autor.Ime)</div> 
+                    <div> @Html.DisplayFor(modelItem =>item.Autor.Prezime)</div>
+                    <div> @Html.DisplayFor(modelItem =>item.Autor.Starost)</div>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
